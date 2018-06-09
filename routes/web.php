@@ -11,10 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware('auth')->group(function(){
+    Route::get('/', function() {    return view('auth/login');  });
+    Route::get('/schools', 'SchoolsController@all')->name('schools');
 });
 
 Auth::routes();
 
+
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/generate/password', function(){    return bcrypt('123456789');  });
