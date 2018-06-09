@@ -13,7 +13,7 @@
 
 Route::middleware('auth')->group(function(){
     Route::get('/', function() {    return view('auth/login');  });
-    Route::get('/schools', 'SchoolsController@all')->name('schools');
+    Route::get('/registrants', 'RegistrantsController@all')->name('schools');
 });
 
 Auth::routes();

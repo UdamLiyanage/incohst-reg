@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class SchoolsController extends Controller
+class RegistrantsController extends Controller
 {
     //
     public function all()
