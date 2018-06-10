@@ -14,6 +14,7 @@
 Route::middleware('auth')->group(function(){
     Route::get('/', function() {    return view('auth/login');  });
     Route::get('/registrants', 'RegistrantsController@all')->name('schools');
+    Route::get('/registrants/{school}', 'RegistrantsController@school');
 });
 
 Auth::routes();
