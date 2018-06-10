@@ -20,11 +20,11 @@ class RegistrantsController extends Controller
         return view('registrants/registrants', $data);
     }
 
-    public function school(Registrant $registrants, $school)
+    public function school(Registrant $registrants, Competitor $competitors, $school)
     {
         $data['school'] = $school;
-        $data['students'] = $registrants->where('school', $school)->get();
-        $data['extras'] = $registrants->where('school', $school)->where()->get();
+        $data['students'] = $competitors->where('school', $school)->get();
+        $data['extras'] = $registrants->where('school', $school)->get();
         return view('registrants/school', $data);
     }
 }
