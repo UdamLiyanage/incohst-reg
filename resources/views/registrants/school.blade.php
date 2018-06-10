@@ -14,6 +14,7 @@
     </style>
 </head>
 <body>
+<img src="{{asset('images/'.$image)}}" height="150" width="150">
 <h3>{{$school}}</h3>
 <h5>Participants</h5>
 <table class="table table-hover">

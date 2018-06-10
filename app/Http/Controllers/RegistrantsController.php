@@ -23,6 +23,8 @@ class RegistrantsController extends Controller
     public function school(Registrant $registrants, Competitor $competitors, $school)
     {
         $data['school'] = $school;
+        $data['image'] = preg_replace('/\s+/', '', $school);
+        $data['image'] = $data['image'].'.png';
         $data['students'] = $competitors->where('school', $school)->get();
         $data['extras'] = $registrants->where('school', $school)->get();
         return view('registrants/school', $data);
