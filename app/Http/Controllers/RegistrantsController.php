@@ -8,6 +8,11 @@ use App\Registrant as Registrant;
 class RegistrantsController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function all(Registrant $registrants)
     {
         $data['students'] = $registrants::all();

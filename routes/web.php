@@ -11,14 +11,14 @@
 |
 */
 
-Route::middleware('auth')->group(function(){
-    Route::get('/', function() {    return view('auth/login');  });
-    Route::get('/registrants', 'RegistrantsController@all')->name('schools');
-    Route::get('/registrants/{school}', 'RegistrantsController@school');
-});
+
 
 Auth::routes();
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/generate/password', function(){    return bcrypt('123456789');  });
+Route::get('/', function() {    return view('auth/login');  });
+Route::get('/registrants', 'RegistrantsController@all')->name('schools');
+Route::get('/registrants/{school}', 'RegistrantsController@school');
+
+Route::get('/generate/password', function(){    return bcrypt('starki@nchsedu');  });
