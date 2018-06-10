@@ -1,22 +1,16 @@
-<!doctype html>
-<html>
-<head>
-    <title>INCOHST 2018</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    <meta charset="utf-8">
-    <style>
-        .table-nonfluid {
-            width: auto !important;
-        }
-    </style>
-</head>
-<body>
-<img src="{{asset('images/'.$image)}}" height="150" width="150">
-<h3>{{$school}}</h3>
-<h5>Participants</h5>
+@extends('layouts.app')
+
+@section('content')
+<div class="image-container" style="position: relative; height: 14rem; border-bottom: 10px;">
+    <div class="image-child" style="position: absolute; top: 50%; left:50%; transform: translate(-50%,-50%);">
+        <img style="border: none" src="{{asset('images/'.$image)}}" height="150" width="150">
+    </div>
+</div>
+<div style="text-align:center; margin-bottom:50px">
+    <p style="font-family: 'Raleway', sans-serif; font-size: 25px; font-align: center;" class="school-name">{{$school}}</p>
+</div>
+
+<h5>Competitors</h5>
 <table class="table table-hover">
     <thead>
         <tr>
@@ -41,7 +35,8 @@
         @endforeach
     </tbody>
 </table>
-
+<div style="margin-bottom:70px"></div>
+<h5>Participants</h5>
 <table class="table table-hover table-nonfluid">
     <thead>
     <tr>
@@ -60,5 +55,4 @@
     @endforeach
     </tbody>
 </table>
-</body>
-</html>
+@endsection

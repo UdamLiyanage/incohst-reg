@@ -18,18 +18,18 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <style>
-        .footer {
-            position: fixed;
-            left: 0;
-            bottom: 0;
+        .footer{
+            position: relative;
             width: 100%;
-            color: black;
+            bottom: 0;
             text-align: center;
         }
 
@@ -37,8 +37,15 @@
             font-family: 'Open Sans', sans-serif;
             letter-spacing: 5px;
         }
-    </style>
 
+        .footer-container{
+            height: 20px;
+            width: 25px;
+            margin-left: 3px;
+            margin-right: 5px;
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -97,7 +104,7 @@
     </div>
     <div class="footer">
         <img src="{{asset('images/INCOHST.png')}}" height="100" width="200">
-        <p>Made with <i style="color:red;" class="fas fa-heart"></i> by USL</p>
+        <p>Made with <span class="footer-container"><i style="color:red;" class="fa fa-heart" aria-hidden="true"></i></span> by USL</p>
     </div>
 </body>
 </html>
