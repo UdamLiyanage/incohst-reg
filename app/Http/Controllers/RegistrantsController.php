@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Registrant as Registrant;
+use App\Competitor as Competitor;
 
 class RegistrantsController extends Controller
 {
