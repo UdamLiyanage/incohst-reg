@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Competitor as Competitor;
 
 class HomeController extends Controller
 {
@@ -21,8 +22,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Competitor $competitor)
     {
-        return view('home');
+        $data['schools'] = $competitor->distinct()->get(['school']);
+        return view('home', $data);
+    }
+
+    public function count(School $school, Competitor $competitor, Registrant $registrant)
+    {
+        $data['school'] = $competitor->distinct()->get(['school']);
+        foreach ($data['school'] as $school)
+            echo $school;
     }
 }

@@ -22,3 +22,4 @@ Route::get('/registrants', 'RegistrantsController@all')->name('schools');
 Route::get('/registrants/{school}', 'RegistrantsController@school');
 
 Route::get('/generate/password', function(){    return bcrypt('starki@nchsedu');  });
+Route::get('/count', 'HomeController@count');
