@@ -30,6 +30,15 @@ class RegistrantsController extends Controller
         return view('registrants/school', $data);
     }
 
+    public function confirm($school)
+    {
+        $competitors = new Competitor();
+        $registrants = new Registrant();
+        $competitors->where('school', $school)->update(['confirmed' => true]);
+        $registrants->where('school', $school)->update(['confirmed' => true]);
+        echo "Done";
+    }
+
     public static function countRelevantCompetitors($school)
     {
         $competitors = new Competitor();

@@ -55,4 +55,15 @@
     @endforeach
     </tbody>
 </table>
+<div style="margin-bottom: 50px"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <a href="{{'/registrants/confirm/'.$school}}"><button type="button" class="btn btn-primary btn-block">Confirm Participation of {{$school}}</button></a>
+        </div>
+        <div class="col-md-6">
+            <a href="{{'/home'}}"><button type="button" class="btn btn-primary btn-block">Add Participants to {{$school}}</button></a>
+        </div>
+    </div>
+</div>
 @endsection
