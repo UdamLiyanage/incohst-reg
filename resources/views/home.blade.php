@@ -29,6 +29,8 @@
                 <img style="float: left;" src="{{asset('images/'. preg_replace('/\s+/', '', $school['school']).'.png')}}" height="150" width="150">
                 <div style="float: right; margin-right: 80px; margin-top: 25px">
                     <p>{{$school['school']}}</p>
+                    <p>Competitors: {{\App\Http\Controllers\RegistrantsController::countCompetitors($school['school'])}}</p>
+                    <p>Workshop Participants: {{App\Http\Controllers\RegistrantsController::countParticipants($school['school'])}}</p>
                 </div>
             </a>
         </div>

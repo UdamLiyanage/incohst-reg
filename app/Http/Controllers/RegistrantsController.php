@@ -29,4 +29,16 @@ class RegistrantsController extends Controller
         $data['extras'] = $registrants->where('school', $school)->get();
         return view('registrants/school', $data);
     }
+
+    public static function countCompetitors($school)
+    {
+        $competitors = new Competitor();
+        echo $competitors->where('school', $school)->get()->count();
+    }
+
+    public static function countParticipants($school)
+    {
+        $participants  = new Registrant();
+        echo $participants->where('school', $school)->get()->count();
+    }
 }
