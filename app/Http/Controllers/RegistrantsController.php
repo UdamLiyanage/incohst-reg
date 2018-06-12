@@ -30,15 +30,27 @@ class RegistrantsController extends Controller
         return view('registrants/school', $data);
     }
 
-    public static function countCompetitors($school)
+    public static function countRelevantCompetitors($school)
     {
         $competitors = new Competitor();
         echo $competitors->where('school', $school)->get()->count();
     }
 
-    public static function countParticipants($school)
+    public static function countRelevantParticipants($school)
     {
         $participants  = new Registrant();
         echo $participants->where('school', $school)->get()->count();
+    }
+
+    public static function countCompetitors()
+    {
+        $competitors = new Competitor();
+        echo $competitors->all()->count();
+    }
+
+    public static function countParticipants()
+    {
+        $participants = new Registrant();
+        echo $participants->all()->count();
     }
 }
