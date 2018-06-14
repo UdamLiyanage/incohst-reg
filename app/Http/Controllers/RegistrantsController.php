@@ -36,7 +36,48 @@ class RegistrantsController extends Controller
         $registrants = new Registrant();
         $competitors->where('school', $school)->update(['confirmed' => true]);
         $registrants->where('school', $school)->update(['confirmed' => true]);
-        echo "Done";
+        return redirect('home');
+    }
+
+    public function addParticipants(Request $request)
+    {
+        $participant = new Registrant();
+        $name = $request->input('name');
+        $school = $request->input('school');
+        $participant->insert(
+            ['name' => $name, 'school' => $school, 'confirmed' => true, 'created_at' => now(), 'updated_at' => now()]
+        );
+        return redirect('home');
+    }
+
+    public function addCompetitors(Request $request)
+    {
+        $competitor = new Competitor();
+        $name = $request->input('name');
+        $school = $request->input('school');
+        $email = $request->input('email');
+        $telephone = $request->input('telephone');
+        $tshirt = $request->input('tshirt');
+        $competitor->insert(
+          ['name' => $name, 'email' => $email, 'telephone' => $telephone, 'school' => $school, 't-shirt' => $tshirt, 'confirmed' => true, 'created_at' => now(), 'updated_at' => now()]
+        );
+        return redirect('home');
+    }
+
+    public function addRegistered($school)
+    {
+        $competitors = new Competitor();
+        $participants = new Registrant();
+        $competitors->where('school', $school)->update(['registered' => true]);
+        $participants->where('school', $school)->update(['registered' => true]);
+    }
+
+    public static function countRegistered()
+    {
+        $competitors = new Competitor();
+        $participants = new Registrant();
+        $total = $competitors->where('registered', true)->get()->count() + $participants->where('registered', true)->get()->count();
+        echo $total;
     }
 
     public static function countRelevantCompetitors($school)
@@ -61,5 +102,13 @@ class RegistrantsController extends Controller
     {
         $participants = new Registrant();
         echo $participants->all()->count();
+    }
+    
+    public static function countConfirmations()
+    {
+        $competitors = new Competitor();
+        $participants = new Registrant();
+        echo $competitors->where('confirmed', true)->get()->count() + $participants->where('confirmed', true)->get()->count();
+        
     }
 }

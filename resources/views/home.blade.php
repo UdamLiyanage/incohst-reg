@@ -25,6 +25,7 @@
     <div style="float: none; margin: 0 auto; width: 500px; padding: 10px 10px 10px 10px;">
         <p>Total competitors: {{App\Http\Controllers\RegistrantsController::countCompetitors()}}</p>
         <p>Total workshop participants: {{App\Http\Controllers\RegistrantsController::countParticipants()}}</p>
+        <p>Total Confirmed: {{\App\Http\Controllers\RegistrantsController::countConfirmations()}}</p>
     </div>
 </div>
 <div style="margin-bottom: 25px"></div>
@@ -37,7 +38,7 @@
                 <div style="float: right; margin-right: 50px; margin-top: 25px; width: 200px;">
                     <p>{{$school['school']}}</p>
                     <p>Competitors: {{\App\Http\Controllers\RegistrantsController::countRelevantCompetitors($school['school'])}}</p>
-                    <p>Workshop Participants: {{App\Http\Controllers\RegistrantsController::countRelevantParticipants($school['school'])}}</p>
+                    <p>Workshop Participants: {{\App\Http\Controllers\RegistrantsController::countRelevantParticipants($school['school'])}}</p>
                 </div>
             </a>
         </div>
